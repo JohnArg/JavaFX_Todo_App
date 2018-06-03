@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
 
 
 <BorderPane 
 	xmlns:fx="http://javafx.com/fxml"
 	fx:controller="john.tutorial_projects.javafx.ui_config.UI_Controller">
+	
+	<left>
+		<ListView fx:id="todoListView" onMouseClicked="#onItemSelected"></ListView>
+	</left>
+	<center>
+		<VBox style="-fx-background-color:white">
+			<TextArea fx:id="descriptionArea" VBox.vgrow="ALWAYS"></TextArea>
+			<HBox >
+				<Label text="Due : " style="-fx-background-color:white">
+					<font>
+						<Font name="Liberation Serif bold" size="16"></Font>
+					</font>
+				</Label>
+				<Label fx:id="dueLabel" style="-fx-background-color:white">
+					<font>
+						<Font name="Liberation Serif bold" size="16"></Font>
+					</font>
+				</Label>
+			</HBox>
+		</VBox>
+	</center>
 </BorderPane>
