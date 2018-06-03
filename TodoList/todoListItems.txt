@@ -1,1 +1,5 @@
-Email/tEMAIL THE DOCUMENTS TO JANE/tJuly 6, 2018/tAppointment/tSEE DOCTOR SMITH, 12 STEIN STREET/tJune 3, 2018/tGarbage/tTHROW THE GARBAGE/tAugust 16, 2018/tPickup Jane/tPICKUP JANE FROM THE TRAIN STATION/tFebruary 12, 2018/tGym/tGO TO THE GYM/tJune 19, 2018/t
+Email	Email the documents to Jane	July 6, 2018
+Appointment	See doctor smith, 12 Stein Street	June 3, 2018
+Garbage	Throw the garbage	August 16, 2018
+Pickup Jane	Pickup Jane from the train station	February 12, 2018
+Gym	Go to the gym	June 19, 2018
