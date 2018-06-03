@@ -6,12 +6,26 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 
 
 <BorderPane 
 	xmlns:fx="http://javafx.com/fxml"
 	fx:controller="john.tutorial_projects.javafx.ui_config.UI_Controller">
-	
+	<top>
+		<MenuBar >
+			<Menu text="File">
+				<items>
+					<MenuItem text="New"></MenuItem>
+					<SeparatorMenuItem/>
+					<MenuItem text="Exit"></MenuItem>
+				</items>
+			</Menu>
+		</MenuBar>
+	</top>
 	<left>
 		<ListView fx:id="todoListView" onMouseClicked="#onItemSelected"></ListView>
 	</left>
