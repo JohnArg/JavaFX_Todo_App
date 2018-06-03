@@ -2,6 +2,7 @@ package john.tutorial_projects.javafx.ui_config;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
+import john.tutorial_projects.javafx.application.dataModel.TodoData;
 import john.tutorial_projects.javafx.application.dataModel.TodoItem;
 
 public class UI_Controller {
@@ -35,6 +37,8 @@ public class UI_Controller {
 		todoItems.add(item4);
 		todoItems.add(item5);
 		
+		TodoData.getInstance().setTodoItems(todoItems);
+		
 		todoListView.getItems().setAll(todoItems);
 		todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 	}
@@ -43,7 +47,8 @@ public class UI_Controller {
 	public void onItemSelected() {
 		TodoItem task = (TodoItem) todoListView.getSelectionModel().getSelectedItem();
 		descriptionArea.setText(task.getDetails());
-		dueLabel.setText(task.getDeadline().toString());
+		DateTimeFormatter df = DateTimeFormatter.ofPattern("MMMM d, yyyy");
+		dueLabel.setText(df.format(task.getDeadline()));
 	}
 	
 }

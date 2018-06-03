@@ -1,6 +1,7 @@
 package john.tutorial_projects.javafx.application.dataModel;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class TodoItem {
 	private String shortDescription;

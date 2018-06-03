@@ -1,10 +1,13 @@
 package john.tutorial_projects.javafx.application;
 	
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import john.tutorial_projects.javafx.application.dataModel.TodoData;
 
 public class Main extends Application {
 	@Override
@@ -18,6 +21,15 @@ public class Main extends Application {
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void stop() throws Exception{
+		try {
+			TodoData.getInstance().storeTodoItems();
+		}catch(IOException e){
+			System.out.println(e.getMessage());
 		}
 	}
 	
