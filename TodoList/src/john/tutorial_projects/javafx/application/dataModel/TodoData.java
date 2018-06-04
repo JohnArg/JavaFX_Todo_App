@@ -76,4 +76,8 @@ public class TodoData {
 		}
 		
 	}
+
+	public void addTodoItem(TodoItem todoItem) {
+		todoItems.add(todoItem);
+	}
 }

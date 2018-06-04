@@ -1,48 +1,65 @@
 package john.tutorial_projects.javafx.ui_config;
 
-import java.time.LocalDate;
-import java.time.Month;
+import java.io.IOException;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.BorderPane;
 import john.tutorial_projects.javafx.application.dataModel.TodoData;
 import john.tutorial_projects.javafx.application.dataModel.TodoItem;
 
 public class UI_Controller {
-	private List<TodoItem> todoItems;
 	@FXML
 	private ListView todoListView;
 	@FXML
 	private TextArea descriptionArea;
 	@FXML
 	private Label dueLabel;
+	@FXML
+	private BorderPane mainPane;
 	
 	public void initialize() {
-		
-//		TodoItem item1 = new TodoItem("Email", "Email the documents to Jane", LocalDate.of(2018, Month.JULY, 6));
-//		TodoItem item2 = new TodoItem("Appointment", "See doctor smith, 12 Stein Street", LocalDate.of(2018, Month.JUNE, 3));
-//		TodoItem item3 = new TodoItem("Garbage", "Throw the garbage", LocalDate.of(2018, Month.AUGUST, 16));
-//		TodoItem item4 = new TodoItem("Pickup Jane", "Pickup Jane from the train station", LocalDate.of(2018, Month.FEBRUARY, 12));
-//		TodoItem item5 = new TodoItem("Gym", "Go to the gym", LocalDate.of(2018, Month.JUNE, 19));
-//		
-//		todoItems = new ArrayList<TodoItem>();
-//		todoItems.add(item1);
-//		todoItems.add(item2);
-//		todoItems.add(item3);
-//		todoItems.add(item4);
-//		todoItems.add(item5);
-//		
-//		TodoData.getInstance().setTodoItems(todoItems);
-		
-		
 		todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
 		todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+	}
+	
+	@FXML
+	public void showNewItemDialog() {
+		Dialog<ButtonType> dialog = new Dialog<>();
+		dialog.initOwner(mainPane.getScene().getWindow());
+		dialog.setTitle("New Todo");
+		dialog.setHeaderText("Create a new todo here");
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("views/todoItemDialog.fxml"));
+		try {
+			dialog.getDialogPane().setContent(loader.load());
+		}catch(IOException e) {
+			System.out.println("Cannot open dialog");
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+		dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+		dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+		Optional<ButtonType> result = dialog.showAndWait();
+		if (result.isPresent() && result.get() == ButtonType.OK) {
+		    DialogController dgController = loader.getController();
+		    TodoItem newItem = dgController.processResults();
+		    todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
+		    todoListView.getSelectionModel().select(newItem);
+		    onItemSelected();
+		}else {
+			
+		}
 	}
 	
 	@FXML

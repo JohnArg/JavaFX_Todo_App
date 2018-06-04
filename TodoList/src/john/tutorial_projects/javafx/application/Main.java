@@ -18,6 +18,7 @@ public class Main extends Application {
 			Scene scene = new Scene(root,700,500);
 			scene.getStylesheets().add(getClass().getResource("../ui_config/styles/application.css").toExternalForm());
 			primaryStage.setScene(scene);
+			primaryStage.setTitle("Todo App");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
