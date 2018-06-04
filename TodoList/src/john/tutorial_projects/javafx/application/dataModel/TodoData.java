@@ -9,15 +9,15 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
-import java.util.List;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 //Singleton class
 public class TodoData {
 	private static TodoData instance= new TodoData();
 	private static String filename = "todoListItems.txt";
-	private List<TodoItem> todoItems;
+	private ObservableList<TodoItem> todoItems;
 	private DateTimeFormatter formatter;
 	
 	private TodoData() {
@@ -28,11 +28,11 @@ public class TodoData {
 		return instance;
 	}
 
-	public List<TodoItem> getTodoItems() {
+	public ObservableList<TodoItem> getTodoItems() {
 		return todoItems;
 	}
 
-	public void setTodoItems(List<TodoItem> todoItems) {
+	public void setTodoItems(ObservableList<TodoItem> todoItems) {
 		this.todoItems = todoItems;
 	}
 	

@@ -29,7 +29,7 @@ public class UI_Controller {
 	private BorderPane mainPane;
 	
 	public void initialize() {
-		todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
+		todoListView.setItems(TodoData.getInstance().getTodoItems());
 		todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 	}
 	
@@ -38,7 +38,7 @@ public class UI_Controller {
 		Dialog<ButtonType> dialog = new Dialog<>();
 		dialog.initOwner(mainPane.getScene().getWindow());
 		dialog.setTitle("New Todo");
-		dialog.setHeaderText("Create a new todo here");
+		dialog.setHeaderText("Create a new Todo");
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("views/todoItemDialog.fxml"));
 		try {
@@ -53,12 +53,9 @@ public class UI_Controller {
 		Optional<ButtonType> result = dialog.showAndWait();
 		if (result.isPresent() && result.get() == ButtonType.OK) {
 		    DialogController dgController = loader.getController();
-		    TodoItem newItem = dgController.processResults();
-		    todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
+		    TodoItem newItem = dgController.processResults(); //adds it to the list and returns reference
 		    todoListView.getSelectionModel().select(newItem);
 		    onItemSelected();
-		}else {
-			
 		}
 	}
 	
