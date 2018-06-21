@@ -10,6 +10,11 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Tooltip?>
 
 
 <BorderPane 
@@ -17,18 +22,34 @@
 	fx:controller="john.tutorial_projects.javafx.ui_config.UI_Controller"
 	fx:id="mainPane">
 	<top>
-		<MenuBar >
-			<Menu text="File">
-				<items>
-					<MenuItem text="New" onAction="#showNewItemDialog"></MenuItem>
-					<SeparatorMenuItem/>
-					<MenuItem text="Exit"></MenuItem>
-				</items>
-			</Menu>
-		</MenuBar>
+		<VBox >
+			<MenuBar >
+				<Menu text="File">
+					<items>
+						<MenuItem text="New" onAction="#showNewItemDialog"></MenuItem>
+						<SeparatorMenuItem/>
+						<MenuItem text="Exit"></MenuItem>
+					</items>
+				</Menu>
+			</MenuBar>
+			<ToolBar >
+				<HBox >
+					<Button fx:id="newBtn" onAction="#showNewItemDialog">
+							<tooltip>
+								<Tooltip text="Add new item"/>
+							</tooltip>
+<!-- 						<graphic> -->
+<!-- 							<ImageView > -->
+<!-- 								<Image url="@john.tutorial_projects.javafx.ui_config.icons/new_item.png"></Image> -->
+<!-- 							</ImageView> -->
+<!-- 						</graphic> -->
+					</Button>
+				</HBox>
+			</ToolBar>
+		</VBox>
 	</top>
 	<left>
-		<ListView fx:id="todoListView" onMouseClicked="#onItemSelected"></ListView>
+		<ListView fx:id="todoListView" onMouseClicked="#onItemSelected" onKeyPressed="#handleKeyPressed"></ListView>
 	</left>
 	<center>
 		<VBox style="-fx-background-color:white">
