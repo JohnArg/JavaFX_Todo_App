@@ -15,6 +15,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.control.ToggleButton?>
 
 
 <BorderPane 
@@ -28,12 +29,12 @@
 					<items>
 						<MenuItem text="New" onAction="#showNewItemDialog"></MenuItem>
 						<SeparatorMenuItem/>
-						<MenuItem text="Exit"></MenuItem>
+						<MenuItem text="Exit" onAction="#exitApp"></MenuItem>
 					</items>
 				</Menu>
 			</MenuBar>
 			<ToolBar >
-				<HBox >
+				<HBox spacing="10" >
 					<Button fx:id="newBtn" onAction="#showNewItemDialog">
 							<tooltip>
 								<Tooltip text="Add new item"/>
@@ -44,12 +45,17 @@
 <!-- 							</ImageView> -->
 <!-- 						</graphic> -->
 					</Button>
+					<ToggleButton fx:id="filterToggleBtn" text="Today's items" onAction="#hanldeFilterBtn">
+							<tooltip>
+								<Tooltip text="Button down : Show today's items only. Button up : Show all items"/>
+							</tooltip>
+					</ToggleButton>
 				</HBox>
 			</ToolBar>
 		</VBox>
 	</top>
 	<left>
-		<ListView fx:id="todoListView" onMouseClicked="#onItemSelected" onKeyPressed="#handleKeyPressed"></ListView>
+		<ListView fx:id="todoListView"  onKeyPressed="#handleKeyPressed"></ListView>
 	</left>
 	<center>
 		<VBox style="-fx-background-color:white">

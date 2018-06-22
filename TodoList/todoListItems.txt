@@ -5,3 +5,4 @@ Pickup Jane	Pickup Jane from the train station	February 12, 2018
 Gym	Go to the gym	June 19, 2018
 New Offer	Check new offer	June 21, 2018
 Tomorrow's task	A task for tomorrow	June 22, 2018
+haha!	haha! Let's see if you trully work buddy!	June 22, 2018
