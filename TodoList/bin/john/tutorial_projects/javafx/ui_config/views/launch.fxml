@@ -58,15 +58,15 @@
 		<ListView fx:id="todoListView"  onKeyPressed="#handleKeyPressed"></ListView>
 	</left>
 	<center>
-		<VBox style="-fx-background-color:white">
+		<VBox >
 			<TextArea fx:id="descriptionArea" VBox.vgrow="ALWAYS"></TextArea>
-			<HBox >
-				<Label text="Due : " style="-fx-background-color:white">
+			<HBox fx:id="dueContainer">
+				<Label text="Due : ">
 					<font>
 						<Font name="Liberation Serif bold" size="16"></Font>
 					</font>
 				</Label>
-				<Label fx:id="dueLabel" style="-fx-background-color:white">
+				<Label fx:id="dueLabel" >
 					<font>
 						<Font name="Liberation Serif bold" size="16"></Font>
 					</font>

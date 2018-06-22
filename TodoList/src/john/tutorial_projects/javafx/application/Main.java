@@ -13,8 +13,8 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../ui_config/views/launch.fxml"));
-			
-			Scene scene = new Scene(root,700,500);
+			//root.getStylesheets().add(getClass().getResource("../ui_config/styles/application.css").toExternalForm());
+			Scene scene = new Scene(root,700,600);
 			scene.getStylesheets().add(getClass().getResource("../ui_config/styles/application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Todo App");

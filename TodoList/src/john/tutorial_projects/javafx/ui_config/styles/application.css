@@ -1,1 +1,32 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.root{
+	-fx-background-color:white;
+	-fx-font-size:11pt;
+}
+
+.tool-bar{
+	-fx-background-color : #444444;
+	-fx-text-fill : white;
+}
+
+.list-view .list-cell:even {
+	-fx-background-color: #dddddd;
+}
+
+.list-view .list-cell:odd {
+	-fx-background-color: #cccccc;
+}
+
+.button{
+	-fx-background-color : #00cc55;
+	-fx-text-fill : white;
+}
+
+#dueContainer{
+	-fx-background-color : #558866;
+	-fx-padding:5px;
+}
+
+#dueContainer .label{
+	-fx-text-fill : white;	
+	-fx-font-weight : bold;
+}
